@@ -1,4 +1,4 @@
-package com.hongjiaoliu.concurrent.semaphore;
+package com.hongjiaoliu.concurrent.chapter8.semaphore;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

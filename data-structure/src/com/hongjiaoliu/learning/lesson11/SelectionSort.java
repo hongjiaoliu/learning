@@ -11,26 +11,6 @@ import java.util.Arrays;
 
 public class SelectionSort {
 
-	//弊端：交换的次数太多，只要比对比的数据小，就交换一次，可以改进成，先遍历余下子数组获得最小的元素，然后再交换
-	public void sort1(int[] a, int n) {
-		if (n <= 1) {
-			return;
-		}
-		for (int i = 0; i < n; ++i) {
-			System.out.println("******************* i = " + i + ",array = " + Arrays.toString(a));
-			for (int j = i + 1; j < n; j++) {
-				if (a[j] < a[i]) {
-					System.out.println("将值" + a[j] + "赋值到位置(" + i + ")上,old array = " + Arrays.toString(a));
-					int temp = a[i];
-					a[i] = a[j];
-					a[j] = temp;
-					System.out.println("new array = " + Arrays.toString(a));
-				}
-			}
-		}
-		System.out.println("排序完的array : " + Arrays.toString(a));
-	}
-
 	public void sort2(int[] a, int n) {
 		if (n <= 1) {
 			return;
@@ -63,7 +43,6 @@ public class SelectionSort {
 
 	public static void main(String[] args) {
 		int[] array = new int[]{4, 5, 6, 3, 2, 1, 5, 6, 3};
-//		new SelectionSort().sort1(array, 6);
 		new SelectionSort().sort2(array, 9);
 	}
 }

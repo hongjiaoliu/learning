@@ -1,4 +1,4 @@
-package com.hongjiaoliu.concurrent.exchanger;
+package com.hongjiaoliu.concurrent.chapter8.exchanger;
 
 import java.util.concurrent.Exchanger;
 import java.util.concurrent.ExecutorService;

@@ -11,36 +11,6 @@ import java.util.Arrays;
 
 public class BubbleSort {
 
-	/**
-	 * 递归的写法
-	 *
-	 * @param array：数组
-	 * @param length   :数组长度
-	 * @author:liuhongjiao
-	 * @date: 2019/2/21 15:30
-	 */
-	public int[] sort(int[] array, int length) {
-		if (length <= 1) {
-			return array;
-		}
-		boolean flag = false;
-		for (int i = 0; i < array.length - 1; i++) {
-			int m = array[i];
-			int n = array[i + 1];
-			if (n < m) {
-				int temp = n;
-				array[i + 1] = m;
-				array[i] = temp;
-				flag = true;
-			}
-		}
-		if (flag) {
-			sort(array, 6);
-		}
-		return array;
-	}
-
-
 	public void bubbleSort(int[] a, int length) {
 		if (length <= 1) {
 			return;
@@ -75,19 +45,6 @@ public class BubbleSort {
 
 	public static void main(String[] args) {
 		int[] array = new int[]{4, 5, 6, 3, 2, 1};
-		System.out.println("array:" + Arrays.toString(array));
-		Long time1 = System.currentTimeMillis();
-
-		//递归的写法
-		/*int[] sortArray = new BubbleSort().sort(array, 6);
-		Long time2 = System.currentTimeMillis();
-		System.out.println("sortArray:" + Arrays.toString(sortArray) + " --- time costed(ms) : " + (time2-time1));*/
-
-		//非递归的写法
 		new BubbleSort().bubbleSort(array, 6);
-
-		//比较
-		//递归的写法简单粗暴，循环次数比非递归的多。
-
 	}
 }

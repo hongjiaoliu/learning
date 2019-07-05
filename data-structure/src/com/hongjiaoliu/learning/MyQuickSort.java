@@ -10,48 +10,40 @@ import java.util.Arrays;
 
 public class MyQuickSort {
 
-	public static void quickSortInternally(int[] a, int p, int r) {
-		if (p >= r) {
+	public static void quickSortRecursion(int[] a, int p, int q) {
+		if (p >= q) {
 			return;
 		}
-
-		int partition = partition(a, p, r);
-		quickSortInternally(a, p, partition - 1);
-		quickSortInternally(a, partition + 1, r);
-		System.out.println(Arrays.toString(a));
+		int r = getDilivedPoint(a, p, q);
+		quickSortRecursion(a, p, r - 1);
+		quickSortRecursion(a, r + 1, q);
 	}
 
-	/**
-	 * 获取分区点
-	 *
-	 * @param a
-	 * @return
-	 */
-	private static int partition(int[] a, int p, int r) {
+	private static int getDilivedPoint(int[] a, int p, int q) {
+		int value = a[q];
 		int i = p;
-		int privot = a[r];
-		for (int j = p; j < r; j++) {
-			if (a[j] < privot) {
+		for (int j = 0; j < q; j++) {
+			if (a[j] < value) {
 				if (i == j) {
-					++i;
+					i++;
 				} else {
 					int temp = a[i];
-					a[i] = a[j];
+					a[i++] = a[j];
 					a[j] = temp;
-					i++;
 				}
 			}
 		}
 
-		// 最后交换 a[i] 与 a[r]
-		int temp = a[i];
-		a[i] = a[r];
-		a[r] = temp;
+		int temp = a[q];
+		a[q] = a[i];
+		a[i] = temp;
 		return i;
 	}
 
+
 	public static void main(String[] args) {
 		int[] array = new int[]{9, 1, 5, 2, 3, 4, 6};
-		MyQuickSort.quickSortInternally(array, 0, array.length - 1);
+		MyQuickSort.quickSortRecursion(array, 0, array.length - 1);
+		System.out.println(Arrays.toString(array));
 	}
 }
